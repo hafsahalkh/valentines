@@ -3,138 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> love </title>
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
-        body {
-            transition: opacity 1s ease;
-            font-family: 'Send Flowers', Arial, sans-serif;
-            flex-direction: column;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: pink;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        h1 {
-            color: red;
-            font-size: 3em;
-        }
-
-        .buttons {
-            margin-top: 10px;
-            position: relative;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .yes {
-            background: #ff5e81;
-            color: white;
-            transition: 0.3s ease;
-        }
-        .yes.larger {
-            font-size: 1.5em; /* Make the yes button larger when clicked */
-        }
-
-        .no {
-            background: #fff;
-            color: #ff5e81;
-            border: 2px solid #ff5e81;
-            position: relative;
-        }
-
-        .heart {
-            color: red;
-            font-size: 2em;
-            position: absolute;
-            animation: float 5s infinite;
-          }
-
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
-        }
-    </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let clickCount = 0;
-            const message = document.querySelector('.message');
-            const noButton = document.querySelector('.no');
-
-            noButton.addEventListener('click', (event) => {
-                const mouseX = event.clientX;
-                const mouseY = event.clientY;
-                const buttonRect = noButton.getBoundingClientRect();
-                const buttonX = buttonRect.left + buttonRect.width / 2;
-                const buttonY = buttonRect.top + buttonRect.height / 2;
-                const deltaX = buttonX - mouseX;
-                const deltaY = buttonY - mouseY;
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                const moveDistance = 100;
-                const moveX = (deltaX / distance) * moveDistance;
-                const moveY = (deltaY / distance) * moveDistance;
-
-                noButton.style.left = `${Math.min(
-                    Math.max(noButton.offsetLeft + moveX, 0), 
-                    window.innerWidth - noButton.offsetWidth 
-                )}px`;
-                
-                noButton.style.top = `${Math.min(
-                    Math.max(noButton.offsetTop + moveY, 0), 
-                    window.innerHeight - noButton.offsetHeight
-                )}px`;
-
-                clickCount++;
-                if (clickCount % 3 === 0) {
-                    message.innerText = "are you serious?!"
-                    message.style.display = "block";
-                    setTimeout(() => {
-                        message.style.display = "none";
-                    }, 1000);  
-                }
-            });
-        });
-
-    </script>
+    <title>From: Hafsah To: Robert ♥ </title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src= "snoopy2.gif" style="max-width: 80%; height:auto; border-radius: 20px;">
-    <h1> will you be my valentine? </h1>
+    <img src="snoopy2.gif" style="max-width: 80%; height:auto; border-radius: 20px;">
+    <h1>Will you be my valentine?</h1>
     <div class="buttons">
-        <button class="yes" onclick="showLoveMessage()"> yes </button>
-        <button class="no"> no </button>
+        <button class="yes" onclick="showLoveMessage()">Yes</button>
+        <button class="no">No</button>
     </div>
-    <script>
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.innerText = '❤️';
-            heart.classList.add('heart');
-            heart.style.left = Math.random() * 100 + 'vw';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 5000);
-        }, 500);
-    </script>
-<script>
-        function showLoveMessage() {
-            document.body.innerHTML = `
-                <div style='text-align: center;'>
-                    <img src="snoopy.gif" alt='love love love..blah...' style='max-width: 100%; height: auto; border-radius: 20px;'>
-                    <h1 style='color: red; margin-top: 20px; font-family: verdana; font-size: 20px;'> I knew it! I love you! ❤️ </h1>
-                </div>
-            `;
-        }
-    </script>
+
+    <script src="script.js"></script>
 </body>
 </html>

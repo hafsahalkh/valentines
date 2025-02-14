@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+
+body {
+    transition: opacity 1s ease;
+    font-family: 'Send Flowers', Arial, sans-serif;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: pink;
+    overflow: hidden;
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    font-size: 3em;
+}
+
+.buttons {
+    margin-top: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background: #ff5e81;
+    color: white;
+    transition: 0.3s ease;
+    font-size: 1.2em;
+}
+
+.no {
+    background: #fff;
+    color: #ff5e81;
+    border: 2px solid #ff5e81;
+    position: relative; /* Start as relative to be properly placed initially */
+}
+
+.heart {
+    color: red;
+    font-size: 2em;
+    position: absolute;
+    animation: float 5s infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
