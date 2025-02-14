@@ -3,17 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From: Hafsah To: Robert ♥ </title>
+    <title>Valentine's Message</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="snoopy2.gif" style="max-width: 80%; height:auto; border-radius: 20px;">
-    <h1>Will you be my valentine?</h1>
-    <div class="buttons">
-        <button class="yes" onclick="showLoveMessage()">Yes</button>
-        <button class="no">No</button>
+    <div class="envelope-container">
+        <div class="envelope">
+            <div class="front">
+                <div class="title">
+                    <p>From: hafsah </p>
+                    <p>To: robert <3 </p>
+                </div>
+            </div>
+            <div class="flap"></div>
+        </div>
+        <button class="login-btn" onclick="showValentinePage()">Open Letter ❤️</button>
     </div>
 
+    <div class="valentine-page" style="display: none;">
+        <div class="content">
+            <div class="gif-container">
+                <img src="snoopy2.gif" alt="Valentine GIF">
+            </div>
+            <h1>Will you be my Valentine?</h1>
+            <div class="buttons">
+                <button class="yes" onclick="showLoveMessage()">Yes</button>
+                <button class="no" id="noBtn">No</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

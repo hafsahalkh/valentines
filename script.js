@@ -86,6 +86,47 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 5000);
     }, 500);
+
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.querySelector('.yes');
+    let scale = 1;
+    
+    noBtn.addEventListener('mouseover', function() {
+        // Increase size of Yes button
+        scale += 0.2;
+        yesBtn.style.transform = `scale(${scale})`;
+        
+        // Get button dimensions
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
+        
+        // Get window dimensions
+        const maxX = window.innerWidth - btnWidth;
+        const maxY = window.innerHeight - btnHeight;
+        
+        // Get yes button position and dimensions
+        const yesBtnRect = yesBtn.getBoundingClientRect();
+        
+        // Generate random position
+        let newX, newY;
+        let overlap;
+        
+        do {
+            newX = Math.floor(Math.random() * maxX);
+            newY = Math.floor(Math.random() * maxY);
+            
+            // Check if new position overlaps with yes button
+            overlap = (newX < yesBtnRect.right && 
+                      newX + btnWidth > yesBtnRect.left && 
+                      newY < yesBtnRect.bottom && 
+                      newY + btnHeight > yesBtnRect.top);
+        } while (overlap);
+        
+        // Apply new position
+        noBtn.style.position = 'fixed';
+        noBtn.style.left = newX + 'px';
+        noBtn.style.top = newY + 'px';
+    });
 });
 
 // Function to show love message when clicking "Yes"
@@ -96,4 +137,10 @@ function showLoveMessage() {
             <h1 style='color: red; margin-top: 20px; font-size: 40px;'> I knew it! I love you! ❤️ </h1>
         </div>
     `;
+}
+
+// Add this new function at the top
+function showValentinePage() {
+    document.querySelector('.envelope-container').style.display = 'none';
+    document.querySelector('.valentine-page').style.display = 'flex';
 }
